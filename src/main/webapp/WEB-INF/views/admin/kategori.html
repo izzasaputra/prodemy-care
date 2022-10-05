@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Ini Kategori</h1>
+	<tr th:each="event : ${list}">
+            <td th:text="${event.id}"></td>
+            <td href="#" th:text="${event.name}"></td>
+     </tr>
+</body>
+</html>
