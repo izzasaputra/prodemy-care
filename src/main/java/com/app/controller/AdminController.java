@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.app.model.Donation;
 import com.app.model.Event;
 import com.app.model.Payment;
+import com.app.service.DonationService;
 import com.app.service.EventService;
 import com.app.service.PaymentService;
 
@@ -40,4 +42,15 @@ public class AdminController extends BaseController {
 		model.addAttribute("list", event);
 		return "admin/kategori";
 	}
+	
+	@Autowired
+	private DonationService donationService;
+	@GetMapping("/donasi")
+	public String getDonation(Model model) throws Exception {
+		List<Donation> donation = donationService.findAll();
+		model.addAttribute("list", donation);
+		return "admin/donasi";
+	}
+	
+	
 }

@@ -23,11 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "donation")
 public class Donation {
 	@Id
-	@GeneratedValue(generator = "UUID")
-	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator", parameters = {
-			@Parameter(name = "uuid_gen_strategy_class", value = "org.hibernate.id.uuid.CustomVersionOneStrategy") })
 	@Column(name = "donation_id", updatable = false, nullable = false)
-	private UUID id;
+	private int id;
 
 	@Column(name = "event_id", updatable = false, nullable = false)
 	private String eventId;
