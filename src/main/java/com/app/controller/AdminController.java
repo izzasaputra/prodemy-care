@@ -47,11 +47,11 @@ public class AdminController extends BaseController {
 	}
 	
 	@PostMapping("/paymentUpdate/{id}")
-	public String save(Model model, HttpServletRequest req, @RequestParam int id) throws Exception {
+	public String updateForm(Model model, HttpServletRequest req, @RequestParam int id) throws Exception {
 		Payment pay = paymentService.findById(id);
 		pay.setId(Integer.parseInt(req.getParameter("id")));
-		pay.setName(req.getParameter("nim"));
-		pay.setRekening(req.getParameter("nama"));
+		pay.setName(req.getParameter("name"));
+		pay.setRekening(req.getParameter("rekening"));
 		paymentService.update(pay);
 		
 		return"redirect:/admincoba/payment";
@@ -89,6 +89,45 @@ public class AdminController extends BaseController {
 		return "admin/kategori";
 	}
 	
+	@GetMapping("/kategoriEdit")
+	public String showUpdateFormKategori(@RequestParam int id, Model model) throws Exception{
+	    Event event = eventService.findById(id);
+	    model.addAttribute("event", event);
+
+		return "admin/kategoriEdit";
+	}
+	
+	@PostMapping("/kategoriUpdate/{id}")
+	public String updateKategori(Model model, HttpServletRequest req, @RequestParam int id) throws Exception {
+		Event event = eventService.findById(id);
+		event.setName(req.getParameter("name"));
+		eventService.update(event);
+		
+		return"redirect:/admincoba/kategori";
+	}
+	
+	@GetMapping("/kategoriAdd")
+	public String viewAddEvent(Model model) throws Exception {
+		return "admin/kategoriAdd";
+	}
+	
+	@PostMapping("/kategoriAdd")
+	public String addEvent(Model model, HttpServletRequest req) throws Exception {
+		Event event = new Event();
+		event.setName(req.getParameter("name"));
+		eventService.insert(event);
+		
+		return "redirect:/admincoba/kategori";
+	}
+	
+	@GetMapping("/kategoriDelete")
+	public String deleteEvent(@RequestParam int id) throws Exception {
+		eventService.deleteById(id);
+		
+		return "redirect:/admincoba/payment";
+	}
+	
+	
 	@Autowired
 	private DonationService donationService;
 	@GetMapping("/donasi")
@@ -96,6 +135,15 @@ public class AdminController extends BaseController {
 		List<Donation> donation = donationService.findAll();
 		model.addAttribute("list", donation);
 		return "admin/donasi";
+	}
+	
+	@GetMapping("/donationUpdate")
+	public String updateDonation(@RequestParam int id, int status) throws Exception {
+		Donation donasi = donationService.findById(id);
+		donasi.setStatus(status);
+		donationService.update(donasi);
+		
+		return "redirect:/admincoba/donasi";
 	}
 	
 	

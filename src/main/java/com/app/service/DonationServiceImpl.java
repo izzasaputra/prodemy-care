@@ -17,7 +17,7 @@ public class DonationServiceImpl implements DonationService{
 	private DonationDao dao;
 	
 	@Override
-	public Donation findById(String id) throws Exception {
+	public Donation findById(int id) throws Exception {
 		return dao.findById(id);
 	}
 

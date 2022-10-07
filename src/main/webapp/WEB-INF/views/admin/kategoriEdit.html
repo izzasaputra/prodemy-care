@@ -7,12 +7,10 @@
 <body>
 	<h1>Edit Payment</h1>
 	
-	<form action="#" th:action="@{paymentUpdate/{id}(id=${pay.id})}"  th:object="${pay}" method="post">
+	<form action="#" th:action="@{kategoriUpdate/{id}(id=${event.id})}"  th:object="${event}" method="post">
 		<input type="hidden" th:field="*{id}" id="id" name="id"/><br>  
-	    <label for="name">Nama</label><br>
+	    <label for="name">Event</label><br>
 	    <input type="text" th:field="*{name}" id="name" name="name"/><br>
-	    <label for="rekening">Rekening</label><br>
-	    <input type="text" th:field="*{rekening}" id="rekening" name="rekening"/><br>
     	<button type="submit">Update</button> 
 	</form>
 </body>

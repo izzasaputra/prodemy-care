@@ -6,9 +6,26 @@
 </head>
 <body>
 	<h1>Ini Kategori</h1>
-	<tr th:each="event : ${list}">
-            <td th:text="${event.id}"></td>
-            <td href="#" th:text="${event.name}"></td>
-     </tr>
+	<a href="kategoriAdd">Tambah</a><br>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Event</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="event : ${list}">
+	            <td th:text="${event.id}"></td>
+	            <td th:text="${event.name}"></td>
+	            <td>
+	            	<a th:href="@{kategoriDelete(id=${event.id})}">Hapus</a>
+	            	<a th:href="@{kategoriEdit(id=${event.id})}">Edit</a>
+	            </td>
+            </tr>
+		</tbody>
+	</table>
+	
 </body>
 </html>
