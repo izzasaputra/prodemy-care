@@ -17,12 +17,12 @@ public class PaymentServiceImpl implements PaymentService{
 	private PaymentDao dao;
 	
 	@Override
-	public Payment findById(String id) throws Exception {
+	public Payment findById(int id) throws Exception {
 		return dao.findById(id);
 	}
 
 	@Override
-	public void deleteById(String id) throws Exception {
+	public void deleteById(int id) throws Exception {
 		dao.deleteById(id);
 		
 	}

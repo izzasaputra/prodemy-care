@@ -46,6 +46,9 @@ public class Donation {
 
 	@Column(name = "donation_photo", updatable = false, nullable = false)
 	private String photo;
+	
+	@Column(name = "payment_id", updatable = false, nullable = false)
+	private String payment;
 
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false, updatable = false)

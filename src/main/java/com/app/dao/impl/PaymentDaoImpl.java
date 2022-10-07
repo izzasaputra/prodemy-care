@@ -25,14 +25,14 @@ public class PaymentDaoImpl implements PaymentDao {
 	}
 	
 	@Override
-	public Payment findById(String id) throws Exception {
+	public Payment findById(int id) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
 		Payment pay = (Payment) session.get(Payment.class, id);
 		return pay;
 	}
 
 	@Override
-	public void deleteById(String id) throws Exception {
+	public void deleteById(int id) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
 		Payment pay = (Payment) session.load(Payment.class, id);
 		session.delete(pay);
@@ -49,7 +49,7 @@ public class PaymentDaoImpl implements PaymentDao {
 	@Override
 	public void update(Payment pay) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(pay);
+		session.saveOrUpdate(pay);
 		logger.debug("Payment updated -> {0}", pay);
 		
 	}
