@@ -17,7 +17,7 @@ public class DonationServiceImpl implements DonationService{
 	private DonationDao dao;
 	
 	@Override
-	public Donation findById(int id) throws Exception {
+	public Donation findById(Long id) throws Exception {
 		return dao.findById(id);
 	}
 
@@ -43,5 +43,6 @@ public class DonationServiceImpl implements DonationService{
 	public List<Donation> findAll() throws Exception {
 		return dao.findAll();
 	}
+
 
 }

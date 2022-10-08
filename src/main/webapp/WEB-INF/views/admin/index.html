@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Admin Page</title>
-</head>
+<head lang="en" th:replace="admin/layouts/head :: head"> </head>
 
-<body>
-    <h2>Ini Menu Admin</h2>
-    <table>
-    	<tr>
-    		<td><a href="payment">Payment</a></td>
-    	</tr>
-	    <tr>
-	    	<td><a href="kategori">Kategori</a></td>
-	    </tr>
-	    <tr>
-	    	<td><a href="donasi">Donasi</a></td>
-	    </tr>
-    </table>
+<body class="bg-gray-100">
+	<aside th:replace="admin/layouts/aside :: aside"></aside>
+	<main class="w-[80%] ml-auto">
+		<div th:replace="admin/layouts/header :: header"></div>
+
+		<section class="mx-6 mt-24">
+			<!-- SECTION -->
+			<div class="flex justify-between">
+				<div class="px-20 bg-white">Tes</div>
+				<div class="px-20 bg-white">Tes</div>
+				<div class="px-20 bg-white">Tes</div>
+			</div>
+			<div class="mt-[200rem]"></div>
+		</section>
+		<footer lang="en" th:replace="admin/layouts/footer :: footer"> </footer>
+	</main>
 </body>
 
 </html>

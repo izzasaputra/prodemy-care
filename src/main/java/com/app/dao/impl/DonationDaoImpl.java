@@ -24,7 +24,7 @@ public class DonationDaoImpl implements DonationDao {
 	}
 
 	@Override
-	public Donation findById(int id) throws Exception {
+	public Donation findById(long id) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
 		Donation donation = (Donation) session.get(Donation.class, id);
 		return donation;

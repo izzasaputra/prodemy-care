@@ -1,6 +1,7 @@
 package com.app.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -24,19 +25,19 @@ import lombok.NoArgsConstructor;
 public class Donation {
 	@Id
 	@Column(name = "donation_id", updatable = false, nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(name = "event_id", nullable = false)
-	private String eventId;
+	private int eventId;
 
 	@Column(name = "donation_title",  nullable = false)
 	private String title;
 
 	@Column(name = "donation_target", nullable = false)
-	private String target;
+	private Long target;
 
 	@Column(name = "donation_deadline",  nullable = false)
-	private LocalDateTime deadline;
+	private Date deadline;
 
 	@Column(name = "donation_status", nullable = false)
 	private int status;
